@@ -1,5 +1,6 @@
 const uuid = require('uuid')
 const Joi = require('@hapi/joi')
+const decoratorValidator = require('./util/decoratorValidator')
 class Handler {
     constructor({ dynamoDbSvc }) {
         this.dynamoDbSvc = dynamoDbSvc
@@ -48,9 +49,6 @@ class Handler {
     async main(event) {
         try {
             const data = JSON.parse(event.body)
-            const { error, value } = await Handler.validator().validate(data)
-
-            console.log({ error, value })
             return {
                 statusCode: 200
             }
@@ -71,4 +69,7 @@ const dynamoDB = new AWS.DynamoDB.DocumentClient()
 const handler = new Handler({
     dynamoDbSvc: dynamoDB
 })
-module.exports = handler.main.bind(handler)
+module.exports = decoratorValidator(
+    handler.main.bind(handler),
+    Handler.validator,
+    'body')
