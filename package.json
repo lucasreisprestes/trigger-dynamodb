@@ -1,0 +1,27 @@
+{
+  "name": "trigger-dynamo",
+  "version": "1.0.0",
+  "description": "<!-- title: 'AWS Simple HTTP Endpoint example in NodeJS' description: 'This template demonstrates how to make a simple HTTP API with Node.js running on AWS Lambda and API Gateway using the Serverless Framework.' layout: Doc framework: v2 platform: AWS language: nodeJS authorLink: 'https://github.com/serverless' authorName: 'Serverless, inc.' authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4' -->",
+  "main": "handler.js",
+  "dependencies": {
+    "aws-sdk": "^2.1038.0",
+    "serverless": "^1.67.3",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "invoke-local": "sls invoke local -f hero-insert --path requests-mock/hero.insert.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucasreisprestes/trigger-dynamodb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucasreisprestes/trigger-dynamodb/issues"
+  },
+  "homepage": "https://github.com/lucasreisprestes/trigger-dynamodb#readme"
+}
